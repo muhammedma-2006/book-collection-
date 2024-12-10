@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Book Collection</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>📚 Book Collection</h1>
+           
+        </div>
+    </header>
+
+    <div class="search-container">
+        <input 
+            type="search" 
+            id="searchInput"
+            placeholder="Search for books..."
+            class="search-input"
+        />
+        <button class="search-button">🔍</button>
+    </div>
+
+    <div class="genre-filter">
+        <h2>Filter by Genre</h2>
+        <div class="genre-buttons">
+            <button class="genre-btn active" data-genre="all">All</button>
+            <button class="genre-btn" data-genre="fiction">Fiction</button>
+            <button class="genre-btn" data-genre="mystery">Mystery</button>
+            <button class="genre-btn" data-genre="non-fiction">Non-Fiction</button>
+        </div>
+    </div>
+      
+
+    <div class="book-list">
+        <!-- Book 1: A Brief History of Time -->
+        <article class="book-card" data-genre="non-fiction">
+            <img src="/image/brief history of time.jpg" alt="A Brief History of Time" class="book-cover" />
+            <div class="book-info">
+                <h2>A Brief History of Time</h2>
+                <p class="author">by Stephen Hawking</p>
+                <div class="rating">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="genre">Non-Fiction</span>
+                <p class="description">A landmark volume in scientific writing by one of the great minds of our time, Stephen Hawking.</p>
+                <div class="book-details">
+                    <span class="detail">Published: 1988</span>
+                    <span class="detail">ISBN: 9780553380163</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Book 2: 1984 -->
+        <article class="book-card" data-genre="fiction">
+            <img src="/image/1984.jpg" alt="1984" class="book-cover" />
+            <div class="book-info">
+                <h2>1984</h2>
+                <p class="author">by George Orwell</p>
+                <div class="rating">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="genre">Fiction</span>
+                <p class="description">A dystopian social science fiction novel set in a totalitarian regime.</p>
+                <div class="book-details">
+                    <span class="detail">Published: 1949</span>
+                    <span class="detail">ISBN: 9780451524935</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Book 3: The Girl with the Dragon Tattoo -->
+        <article class="book-card" data-genre="mystery">
+            <img src="/image/the-girl-with-the-dragon-tattoo.webp" alt="The Girl with the Dragon Tattoo" class="book-cover" />
+            <div class="book-info">
+                <h2>The Girl with the Dragon Tattoo</h2>
+                <p class="author">by Stieg Larsson</p>
+                <div class="rating">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="genre">Mystery</span>
+                <p class="description">A brilliant and unorthodox investigative journalist and a gifted hacker work together to solve a decades-old mystery.</p>
+                <div class="book-details">
+                    <span class="detail">Published: 2005</span>
+                    <span class="detail">ISBN: 9780307949486</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Book 4: To Kill a Mockingbird -->
+        <article class="book-card" data-genre="fiction">
+            <img src="image/To Kill a Mockingbird.jpeg" class="book-cover" />
+            <div class="book-info">
+                <h2>To Kill a Mockingbird</h2>
+                <p class="author">by Harper Lee</p>
+                <div class="rating">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="genre">Fiction</span>
+                <p class="description">A classic of modern American literature that explores racial injustice in the Deep South.</p>
+                <div class="book-details">
+                    <span class="detail">Published: 1960</span>
+                    <span class="detail">ISBN: 9780061120084</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Book 5: Sapiens: A Brief History of Humankind -->
+        <article class="book-card" data-genre="non-fiction">
+            <img src="/image/uw.jpg" alt="Sapiens" class="book-cover" />
+            <div class="book-info">
+                <h2>Sapiens: A Brief History of Humankind</h2>
+                <p class="author">by Yuval Noah Harari</p>
+                <div class="rating">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="genre">Non-Fiction</span>
+                <p class="description">An exploration of the history and impact of Homo sapiens on the world.</p>
+                <div class="book-details">
+                    <span class="detail">Published: 2011</span>
+                    <span class="detail">ISBN: 9780062316097</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Book 6: The Catcher in the Rye -->
+        <article class="book-card" data-genre="fiction">
+            <img src="/image/The Catcher in the Rye.jpg" alt="The Catcher in the Rye" class="book-cover" />
+            <div class="book-info">
+                <h2>The Catcher in the Rye</h2>
+                <p class="author">by J.D. Salinger</p>
+                <div class="rating">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="genre">Fiction</span>
+                <p class="description">A novel about teenage rebellion and the confusion of adolescence.</p>
+                <div class="book-details">
+                    <span class="detail">Published: 1951</span>
+                    <span class="detail">ISBN: 9780316769488</span>
+                </div>
+            </div>
+        </article>
+
+    </div>
+    <div class="add-book-form-container">
+        <h2>Add a New Book</h2>
+        <form id="addBookForm">
+            <label for="title">Book Title:</label>
+            <input type="text" id="title" required placeholder="Enter book title" />
+
+            <label for="author">Author:</label>
+            <input type="text" id="author" required placeholder="Enter author's name" />
+
+            <label for="genre">Genre:</label>
+            <input type="text" id="genre" required placeholder="Enter genre" />
+
+            <label for="description">Description:</label>
+            <textarea id="description" required placeholder="Enter book description"></textarea>
+
+            <label for="cover">Cover Image URL:</label>
+            <input type="text" id="cover" required placeholder="Enter image URL" />
+
+            <button type="submit">Add Book</button>
+        </form>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
