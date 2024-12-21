@@ -4,31 +4,32 @@ const bookCards = document.querySelectorAll('.book-card');
 
 // Search functionality
 searchInput?.addEventListener('input', (e) => {
-  const query = e.target.value.toLowerCase();
+    const query = e.target.value.toLowerCase();
 
-  bookCards.forEach(card => {
-    const text = card.textContent?.toLowerCase() || '';
-    card.classList.toggle('hidden', !text.includes(query));
-  });
+    bookCards.forEach(card => {
+        const text = card.textContent?.toLowerCase() || '';
+        card.classList.toggle('hidden', !text.includes(query));
+    });
 });
 
 // Genre filter functionality
 genreButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    genreButtons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
+    button.addEventListener('click', () => {
+        genreButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
 
-    const selectedGenre = button.getAttribute('data-genre');
-    bookCards.forEach(card => {
-      const cardGenre = card.getAttribute('data-genre');
-      if (selectedGenre === 'all') {
-        card.classList.remove('hidden');
-      } else {
-        card.classList.toggle('hidden', cardGenre !== selectedGenre);
-      }
+        const selectedGenre = button.getAttribute('data-genre');
+        bookCards.forEach(card => {
+            const cardGenre = card.getAttribute('data-genre');
+            if (selectedGenre === 'all') {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.toggle('hidden', cardGenre !== selectedGenre);
+            }
+        });
     });
-  });
 });
+
 // Select the form and book list container
 const addBookForm = document.getElementById('addBookForm');
 const bookList = document.querySelector('.book-list');
@@ -54,8 +55,13 @@ function createBookCard(book) {
 
 // Load books from local storage on page load
 function loadBooks() {
-    const books = JSON.parse(localStorage.getItem('books')) || [];
-    books.forEach(book => createBookCard(book));
+    try {
+        const books = JSON.parse(localStorage.getItem('books')) || [];
+        books.forEach(book => createBookCard(book));
+    } catch (error) {
+        console.error("Error loading books from localStorage:", error);
+        localStorage.setItem('books', JSON.stringify([])); // Reset books if invalid
+    }
 }
 
 // Save books to local storage
@@ -75,34 +81,42 @@ function saveBooks() {
 }
 
 // Handle the form submission
-addBookForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+if (addBookForm) {
+    addBookForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-    // Get the values from the form
-    const title = document.getElementById('title').value;
-    const author = document.getElementById('author').value;
-    const genre = document.getElementById('genre').value;
-    const description = document.getElementById('description').value;
-    const cover = document.getElementById('cover').value;
+        // Get the values from the form
+        const title = document.getElementById('title').value.trim();
+        const author = document.getElementById('author').value.trim();
+        const genre = document.getElementById('genre').value.trim();
+        const description = document.getElementById('description').value.trim();
+        const cover = document.getElementById('cover').value.trim();
 
-    // Create the new book object
-    const newBook = {
-        title,
-        author,
-        genre,
-        description,
-        cover
-    };
+        // Validate the inputs
+        if (!title || !author || !genre || !description || !cover) {
+            alert('Please fill out all fields before adding a book.');
+            return;
+        }
 
-    // Add the new book to the book list
-    createBookCard(newBook);
+        // Create the new book object
+        const newBook = {
+            title,
+            author,
+            genre,
+            description,
+            cover
+        };
 
-    // Save the updated book list to local storage
-    saveBooks();
+        // Add the new book to the book list
+        createBookCard(newBook);
 
-    // Reset the form
-    addBookForm.reset();
-});
+        // Save the updated book list to local storage
+        saveBooks();
+
+        // Reset the form
+        addBookForm.reset();
+    });
+}
 
 // Load books when the page loads
 loadBooks();
